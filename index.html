@@ -1,1 +1,47 @@
-<h1>Hola, este es mi portafolio de VFX</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio VFX | Mi Nombre</title>
+    <style>
+        body { font-family: sans-serif; background: #111; color: white; margin: 0; padding: 20px; text-align: center; }
+        header { padding: 50px 0; }
+        .container { max-width: 1000px; margin: auto; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 30px; border: 2px solid #333; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #222; padding: 15px; border-radius: 8px; }
+        img { width: 100%; border-radius: 5px; }
+        h2 { color: #f39c12; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MI PORTAFOLIO VFX & FX</h1>
+        <p>Realizador Visual | Publicidad | Post-producción</p>
+    </header>
+
+    <div class="container">
+        <h2>Mi Demo Reel</h2>
+        <div class="video-container">
+            <!-- PEGA AQUÍ TU LINK DE YOUTUBE O VIMEO -->
+            <iframe src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <h2>Trabajos Destacados</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://placeholder.com" alt="Trabajo 1">
+                <h3>Publicidad FX</h3>
+                <p>Explicación breve del proceso de efectos visuales realizados.</p>
+            </div>
+            <div class="card">
+                <img src="https://placeholder.com" alt="Trabajo 2">
+                <h3>VFX Breakdown</h3>
+                <p>Cómo se hizo la integración de elementos 3D en rodaje real.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
