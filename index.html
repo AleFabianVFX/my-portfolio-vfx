@@ -171,24 +171,21 @@
                 fill 0.28s ease;
         }
 
-        /* WhatsApp: aro fino + auricular un poco más marcado */
+        /* WhatsApp: aro fino + teléfono relleno, como tu referencia */
         .icon-wa .wa-ring {
             fill: none;
             stroke: var(--wa-color);
-            stroke-width: 0.55;
+            stroke-width: 0.8;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
         .icon-wa .wa-phone {
-            fill: none;
-            stroke: var(--wa-color);
-            stroke-width: 0.75;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            fill: var(--wa-color);
+            stroke: none;
         }
 
-        /* Instagram: outline fino naranja + punto lleno */
+        /* Instagram: mantener como estaba */
         .icon-ig rect,
         .icon-ig circle {
             fill: none;
@@ -303,8 +300,8 @@
                         <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <!-- aro + cola -->
                             <path class="wa-ring" d="M12 3.2a8.8 8.8 0 0 0-7.53 13.37L3.6 20.8l4.37-1.15A8.8 8.8 0 1 0 12 3.2Z"/>
-                            <!-- auricular centrado (inspirado en tu PNG) -->
-                            <path class="wa-phone" d="M9.55 8.85c.18-.4.48-.52.8-.52h.5c.2 0 .42.14.54.36l.55 1.22c.1.24.08.5-.06.72l-.42.63c-.12.18-.1.42.03.58.42.53 1.06 1.12 1.83 1.5.2.1.43.08.59-.06l.58-.49c.21-.18.5-.23.76-.1l1.17.56c.23.12.36.35.35.6l-.02.46c-.01.37-.19.7-.5.9-.47.31-1.1.53-1.78.47-.95-.08-2.08-.54-3.2-1.56-1-.92-1.6-1.95-1.82-2.82-.16-.65-.06-1.28.3-1.85Z"/>
+                            <!-- teléfono relleno, aproximado a tu imagen -->
+                            <path class="wa-phone" d="M10.35 7.95c-.22 0-.42.12-.53.31l-.52.92c-.17.3-.2.67-.07.99.44 1.09 1.17 2.08 2.16 2.95.97.85 2.02 1.47 3.12 1.83.31.1.66.03.92-.18l.83-.69c.18-.15.42-.2.64-.11l1.17.47c.31.12.49.44.45.77l-.08.71c-.03.27-.19.52-.43.65-.57.33-1.27.5-2.08.41-1.11-.12-2.38-.7-3.71-1.87-1.22-1.07-2.02-2.31-2.38-3.49-.27-.87-.21-1.67.09-2.34.14-.32.45-.53.8-.53h.62Z"/>
                         </svg>
                     </a>
                 </div>
