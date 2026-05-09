@@ -159,7 +159,6 @@
             border-radius: 999px;
         }
 
-        /* WhatsApp PNG */
         .icon-wa-img {
             width: 60px;
             height: 60px;
@@ -168,7 +167,6 @@
             transition: transform 0.28s ease;
         }
 
-        /* Instagram SVG — versión aprobada */
         .icon-ig {
             width: 60px;
             height: 60px;
@@ -180,7 +178,7 @@
         .icon-ig circle {
             fill: none;
             stroke: var(--ig-color);
-            stroke-width: 0.55;
+            stroke-width: 1.5;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
@@ -211,26 +209,11 @@
         }
 
         @media (max-width: 520px) {
-            h1 {
-                letter-spacing: 0.42em;
-                text-indent: 0.42em;
-            }
-            .profesion {
-                font-size: 0.95rem;
-                letter-spacing: 0.24em;
-                padding-inline: 18px;
-            }
-            .proximamente {
-                font-size: 1.06rem;
-                letter-spacing: 0.38em;
-                text-indent: 0.38em;
-                margin: 44px 0 44px;
-            }
+            h1 { letter-spacing: 0.42em; text-indent: 0.42em; }
+            .profesion { font-size: 0.95rem; letter-spacing: 0.24em; padding-inline: 18px; }
+            .proximamente { font-size: 1.06rem; letter-spacing: 0.38em; text-indent: 0.38em; margin: 44px 0 44px; }
             .contact-grid { gap: 30px; }
-            .contact-label {
-                font-size: 0.76rem;
-                letter-spacing: 0.22em;
-            }
+            .contact-label { font-size: 0.76rem; letter-spacing: 0.22em; }
         }
 
         @media (min-width: 768px) {
@@ -266,7 +249,6 @@
         <section class="contact-section" aria-label="Contacto y portfolio">
             <div class="contact-grid">
 
-                <!-- CONTACTO: WhatsApp PNG local -->
                 <div class="contact-item">
                     <p class="contact-label">Contacto</p>
                     <a
@@ -284,7 +266,6 @@
                     </a>
                 </div>
 
-                <!-- PORTFOLIO: Instagram SVG aprobado -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
@@ -294,10 +275,11 @@
                         class="link"
                         aria-label="Instagram de Alejandro Fabian, se abre en una nueva pestaña"
                     >
+                        <!-- Instagram: proporciones exactas de tu referencia -->
                         <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
-                            ircle cx="12" cy="12" r="4.5"/>
-                            ircle class="ig-dot" cx="17" cy="7" r="0.9"/>
+                            <rect x="4.5" y="4.5" width="15" height="15" rx="4.5"/>
+                            ircle cx="12" cy="12" r="3.8"/>
+                            ircle class="ig-dot" cx="16.3" cy="7.7" r="0.8"/>
                         </svg>
                     </a>
                 </div>
