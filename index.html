@@ -3,159 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEJANDRO FABIAN | FX & VFX</title>
+    <title>ALEJANDRO FABIAN | FX &amp; VFX</title>
+    <meta name="description" content="Portfolio y contacto de Alejandro Fabian, artista de FX &amp; VFX.">
     <style>
+        :root {
+            --bg: #050505;
+            --surface: #101010;
+            --border: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #777777;
+            --accent: #ffb300;
+            --accent-soft: rgba(255, 179, 0, 0.18);
+            --radius: 12px;
+            --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
+            --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 0;
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 32px 16px 64px;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; 
             align-items: center;
             text-align: center;
         }
 
-        /* Contenedor para centrar el nombre entre el borde y la foto */
-        .header-section {
-            height: 120px; /* Ajusta esta altura para dar más o menos aire total */
+        main {
+            width: 100%;
+            max-width: 960px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 32px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            letter-spacing: 8px;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+            letter-spacing: 0.6em;
             margin: 0;
             font-weight: 300;
             text-transform: uppercase;
+            text-indent: 0.6em; /* compensar el primer espacio */
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            margin: 0;
         }
 
         .media-container {
-            width: 95%;
+            width: 100%;
             max-width: 900px;
-            margin-bottom: 30px;
-            border: 1px solid #1a1a1a;
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            box-shadow: var(--shadow-strong);
+            background: var(--surface);
         }
 
-        img {
+        .media-container img {
             width: 100%;
             display: block;
         }
 
         .profesion {
-            color: #FFB300; 
-            font-size: 1.4rem;
+            color: var(--accent);
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: 5px;
-            margin: 0;
+            letter-spacing: 0.4em;
+            margin: 4px 0 0;
             text-transform: uppercase;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 0% 0%, var(--accent-soft), transparent 60%);
+            border: 1px solid rgba(255, 179, 0, 0.25);
         }
 
         .separator {
             display: inline-flex;
             align-items: center;
             line-height: 1;
-            padding-bottom: 4px; /* Alineación óptica de la barra */
+            transform: translateY(-1px); /* alineación óptica */
         }
 
         .proximamente {
-            font-size: 1.1rem; /* Más grande */
-            color: #888; /* Gris más claro y visible */
-            letter-spacing: 7px;
+            font-size: 0.95rem;
+            color: #aaaaaa;
+            letter-spacing: 0.6em;
             text-transform: uppercase;
-            margin: 50px 0 70px 0;
+            margin: 36px 0 32px;
             font-weight: 300;
         }
 
         .contact-section {
-            border-top: 1px solid #1a1a1a;
-            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            padding-top: 28px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
-            margin-bottom: 80px;
-            width: 80%;
-            max-width: 400px;
+            gap: 18px;
+            width: 100%;
+            max-width: 420px;
         }
 
         .contact-section p {
-            font-size: 0.8rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: var(--text-muted);
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.3em;
         }
 
         .icons-container {
             display: flex;
-            gap: 40px;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .link {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .icon {
-            width: 45px;
-            height: 45px;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 42px;
+            height: 42px;
+            transition:
+                transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                filter 0.35s ease,
+                box-shadow 0.35s ease;
+            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
         }
 
-        .icon-ig { fill: #E4405F; }
-        .icon-wa { fill: #25D366; }
+        .icon-ig { fill: #e4405f; }
+        .icon-wa { fill: #25d366; }
 
-        .link:hover .icon {
-            transform: translateY(-10px);
-            filter: brightness(1.2);
+        .link:hover .icon,
+        .link:focus-visible .icon {
+            transform: translateY(-8px);
+            filter: brightness(1.25) drop-shadow(0 0 14px rgba(0, 0, 0, 0.9));
         }
 
-        .link { text-decoration: none; }
+        .link:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 999px;
+        }
+
+        footer {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            color: #555555;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding-top: 48px;
+            }
+
+            main {
+                gap: 40px;
+            }
+
+            header {
+                gap: 16px;
+            }
+
+            .proximamente {
+                margin-top: 40px;
+                margin-bottom: 36px;
+            }
+        }
     </style>
 </head>
 <body>
+    <main>
+        <header>
+            <h1>Alejandro Fabian</h1>
+            <p class="tagline">FX &amp; VFX artist</p>
+        </header>
 
-    <div class="header-section">
-        <h1>ALEJANDRO FABIAN</h1>
-    </div>
+        <section aria-label="Portada principal" class="media-container">
+            <img src="portada.jpg" alt="Portada cinematográfica del portfolio de FX y VFX de Alejandro Fabian">
+        </section>
 
-    <div class="media-container">
-        <img src="portada.jpg" alt="Alejandro Fabian VFX Portfolio">
-    </div>
+        <section aria-label="Especialidades">
+            <div class="profesion">
+                <span>FX</span>
+                <span class="separator">|</span>
+                <span>VFX</span>
+            </div>
+        </section>
 
-    <div class="profesion">
-        <span>FX</span>
-        <span class="separator">|</span>
-        <span>VFX</span>
-    </div>
-    
-    <div class="proximamente">Próximamente...</div>
+        <section aria-label="Próximamente portfolio completo">
+            <p class="proximamente">Próximamente</p>
+        </section>
 
-    <div class="contact-section">
-        <p>Contacto y Portfolio</p>
-        <div class="icons-container">
-            <!-- Instagram con link corregido -->
-            <a href="https://www.instagram.com/alefabianvfx?igsh=YWkyZmtwaW8zdjVy" target="_blank" class="link">
-                <svg class="icon icon-ig" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-            </a>
-            <!-- WhatsApp con icono centrado y corregido -->
-            <a href="https://whatsapp.com" target="_blank" class="link">
-                <svg class="icon icon-wa" viewBox="0 0 24 24">
-                    <path d="M12.031 6.062c-3.411 0-6.188 2.777-6.188 6.189 0 1.081.277 2.139.806 3.07l-.859 3.135 3.208-.841c.905.494 1.928.755 2.972.755 3.41 0 6.188-2.777 6.188-6.188 0-3.412-2.778-6.19-6.127-6.19zm3.613 8.757c-.149.421-.756.772-1.042.822-.285.051-.555.078-.857.078-1.503 0-2.923-.623-3.831-1.432-.907-.808-1.508-1.89-1.508-3.081 0-.414.1-.782.28-1.103.179-.321.46-.575.795-.716.336-.142.666-.214.97-.214.116 0 .227.026.331.077.104.051.192.128.261.229l.666 1.603c.069.167.069.345 0 .513-.069.168-.192.311-.341.42l-.24.175c-.15.109-.221.264-.176.438.045.174.195.39.42.617.225.226.471.408.685.508.214.1.393.134.545.1.152-.034.281-.137.387-.285l.179-.251c.106-.149.26-.229.431-.202.17.027.351.104.512.2l1.545.892c.162.094.288.225.357.379.07.153.08.322.02.484zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
-                </svg>
-            </a>
-        </div>
-    </div>
+        <section class="contact-section" aria-label="Contacto y redes">
+            <p>Contacto y portfolio</p>
+            <div class="icons-container">
+                <a
+                    href="https://www.instagram.com/alefabianvfx?igsh=YWkyZmtwaW8zdjVy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link"
+                    aria-label="Instagram de Alejandro Fabian, se abre en una nueva pestaña"
+                >
+                    <svg class="icon icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
 
+                <a
+                    href="https://wa.me/54911XXXXXXXX" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link"
+                    aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
+                >
+                    <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12.031 6.062c-3.411 0-6.188 2.777-6.188 6.189 0 1.081.277 2.139.806 3.07l-.859 3.135 3.208-.841c.905.494 1.928.755 2.972.755 3.41 0 6.188-2.777 6.188-6.188 0-3.412-2.778-6.19-6.127-6.19zm3.613 8.757c-.149.421-.756.772-1.042.822-.285.051-.555.078-.857.078-1.503 0-2.923-.623-3.831-1.432-.907-.808-1.508-1.89-1.508-3.081 0-.414.1-.782.28-1.103.179-.321.46-.575.795-.716.336-.142.666-.214.97-.214.116 0 .227.026.331.077.104.051.192.128.261.229l.666 1.603c.069.167.069.345 0 .513-.069.168-.192.311-.341.42l-.24.175c-.15.109-.221.264-.176.438.045.174.195.39.42.617.225.226.471.408.685.508.214.1.393.134.545.1.152-.034.281-.137.387-.285l.179-.251c.106-.149.26-.229.431-.202.17.027.351.104.512.2l1.545.892c.162.094.288.225.357.379.07.153.08.322.02.484zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> Alejandro Fabian
+        </footer>
+    </main>
+
+    <script>
+        // Año dinámico
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
