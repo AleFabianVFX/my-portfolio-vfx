@@ -18,23 +18,19 @@
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
         }
-
         * { box-sizing: border-box; }
-
         body {
             margin: 0;
             padding: 32px 16px 64px;
             background-color: var(--bg);
             color: var(--text);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
-
         main {
             width: 100%;
             max-width: 960px;
@@ -43,14 +39,12 @@
             align-items: center;
             gap: 32px;
         }
-
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
         }
-
         h1 {
             font-size: clamp(1.9rem, 3vw, 2.4rem);
             letter-spacing: 0.6em;
@@ -59,7 +53,6 @@
             text-transform: uppercase;
             text-indent: 0.6em;
         }
-
         .tagline {
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -67,7 +60,6 @@
             color: var(--text-muted);
             margin: 0;
         }
-
         .media-container {
             width: 100%;
             max-width: 900px;
@@ -77,12 +69,10 @@
             box-shadow: var(--shadow-strong);
             background: var(--surface);
         }
-
         .media-container img {
             width: 100%;
             display: block;
         }
-
         .profesion {
             color: var(--accent);
             font-size: 1rem;
@@ -99,7 +89,6 @@
             border: 1px solid rgba(255, 179, 0, 0.35);
             background: radial-gradient(circle at 0% 0%, rgba(255,179,0,0.12), transparent 60%);
         }
-
         .separator {
             display: inline-flex;
             align-items: center;
@@ -108,7 +97,6 @@
             font-weight: 300;
             opacity: 0.8;
         }
-
         .proximamente {
             font-size: 1.22rem;
             color: var(--text-soft);
@@ -118,14 +106,12 @@
             font-weight: 300;
             text-indent: 0.5em;
         }
-
         .contact-section {
             border-top: 1px solid rgba(255, 255, 255, 0.22);
             padding-top: 30px;
             width: 100%;
             max-width: 520px;
         }
-
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(120px, 1fr));
@@ -133,14 +119,12 @@
             align-items: start;
             justify-items: center;
         }
-
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 18px;
         }
-
         .contact-label {
             font-size: 0.82rem;
             color: var(--text-muted);
@@ -148,7 +132,6 @@
             text-transform: uppercase;
             letter-spacing: 0.28em;
         }
-
         .link {
             text-decoration: none;
             display: inline-flex;
@@ -158,8 +141,6 @@
             height: 74px;
             border-radius: 999px;
         }
-
-        /* WhatsApp PNG */
         .icon-wa-img {
             width: 60px;
             height: 60px;
@@ -167,46 +148,34 @@
             display: block;
             transition: transform 0.28s ease;
         }
-
-        /* Instagram SVG */
         .icon-ig {
             width: 60px;
             height: 60px;
             display: block;
             transition: transform 0.28s ease;
         }
-
-        .icon-ig rect {
+        .icon-ig rect,
+        .icon-ig circle {
             fill: none;
             stroke: var(--ig-color);
-            stroke-width: 1.5;
+            stroke-width: 0.55;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
-
-        .icon-ig circle:not(.ig-dot) {
-            fill: none;
-            stroke: var(--ig-color);
-            stroke-width: 1.5;
-        }
-
         .icon-ig .ig-dot {
             fill: var(--ig-color);
             stroke: none;
         }
-
         .link:hover .icon-wa-img,
         .link:focus-visible .icon-wa-img,
         .link:hover .icon-ig,
         .link:focus-visible .icon-ig {
             transform: translateY(-4px);
         }
-
         .link:focus-visible {
             outline: 1px solid rgba(255, 179, 0, 0.7);
             outline-offset: 4px;
         }
-
         footer {
             margin-top: 12px;
             font-size: 0.7rem;
@@ -214,7 +183,6 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
         }
-
         @media (max-width: 520px) {
             h1 { letter-spacing: 0.42em; text-indent: 0.42em; }
             .profesion { font-size: 0.95rem; letter-spacing: 0.24em; padding-inline: 18px; }
@@ -222,7 +190,6 @@
             .contact-grid { gap: 30px; }
             .contact-label { font-size: 0.76rem; letter-spacing: 0.22em; }
         }
-
         @media (min-width: 768px) {
             body { padding-top: 48px; }
             main { gap: 40px; }
@@ -283,9 +250,9 @@
                         aria-label="Instagram de Alejandro Fabian, se abre en una nueva pestaña"
                     >
                         <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <rect x="4.5" y="4.5" width="15" height="15" rx="4.5"/>
-                            ircle cx="12" cy="12" r="3.8"/>
-                            ircle class="ig-dot" cx="16.3" cy="7.7" r="1.1"/>
+                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
+                            ircle cx="12" cy="12" r="4.5"/>
+                            ircle class="ig-dot" cx="17" cy="7" r="0.9"/>
                         </svg>
                     </a>
                 </div>
