@@ -14,8 +14,8 @@
             --text-muted: #7a7a7a;
             --text-soft: #a8a8a8;
             --accent: #ffb300;
-            --wa-color: #25D366;  /* verde WhatsApp solo en trazo */
-            --ig-color: #FCAF45;  /* naranja para Instagram outline */
+            --wa-color: #25D366;  /* verde WhatsApp */
+            --ig-color: #FCAF45;  /* naranja Instagram */
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
         }
@@ -171,7 +171,7 @@
                 fill 0.28s ease;
         }
 
-        /* WhatsApp: burbuja + teléfono, solo trazo verde, sin círculo extra */
+        /* WhatsApp: burbuja + teléfono en outline verde, sin rellenos internos */
         .icon-wa path {
             fill: none;
             stroke: var(--wa-color);
@@ -180,7 +180,7 @@
             stroke-linejoin: round;
         }
 
-        /* Instagram: recuadro redondeado + círculo + punto, solo outline naranja */
+        /* Instagram: recuadro redondeado + círculo + punto, outline naranja */
         .icon-ig rect,
         .icon-ig circle {
             fill: none;
@@ -292,10 +292,10 @@
                         class="link"
                         aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <!-- Burbuja + teléfono, estilo WhatsApp, outline -->
+                        <!-- Burbuja + teléfono, outline verde sin formas rellenas -->
                         <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M5.2 19.2 4 22.8l3.7-1.2A9 9 0 1 0 5.2 19.2Z"/>
-                            <path d="M9.6 10.5c.2-.5.4-.5.7-.5h.4c.1 0 .3.1.4.3.2.2.5.8.5 1.1 0 .3-.1.5-.3.8-.2.2-.6.9-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.7-2.7-2.1-.1-.2-.1-.4 0-.5.1-.1.2-.2.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3 0 .1.1.6.7.6.7Z"/>
+                            <path d="M5 19 4 22l3-1a8 8 0 1 0-2-2Z"/>
+                            <path d="M9.5 9.5c.2-.5.4-.5.7-.5h.3c.1 0 .3.1.4.3.2.2.6.9.6 1.1s-.1.4-.2.7-.4.6-.5.7c-.1.2-.3.2-.6.1-1.3-.6-2.1-1.6-2.5-2-.1-.2-.1-.3 0-.5.1-.1.2-.2.3-.3s.2-.2.3-.3.2-.1.3 0 .6.6.6.6Z"/>
                         </svg>
                     </a>
                 </div>
