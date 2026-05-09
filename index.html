@@ -157,35 +157,35 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 72px;
-            height: 72px;
+            width: 68px;
+            height: 68px;
             border-radius: 999px;
         }
 
         .icon {
-            width: 54px;   /* ~50% más grande que antes (36 → 54) */
-            height: 54px;
+            width: 50px;
+            height: 50px;
             transition:
                 transform 0.28s ease,
                 stroke 0.28s ease,
                 fill 0.28s ease;
         }
 
-        /* WhatsApp: globo + teléfono, outline verde limpio (sin firuletes) */
+        /* WhatsApp: globo + teléfono centrado, outline fino */
         .icon-wa path {
             fill: none;
             stroke: var(--wa-color);
-            stroke-width: 1.7;
+            stroke-width: 1.3;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
-        /* Instagram anterior: recuadro redondeado + círculo + punto, outline naranja */
+        /* Instagram: outline fino naranja (versión anterior) */
         .icon-ig rect,
         .icon-ig circle {
             fill: none;
             stroke: var(--ig-color);
-            stroke-width: 1.7;
+            stroke-width: 1.3;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
@@ -292,17 +292,17 @@
                         class="link"
                         aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <!-- Globo con flecha + teléfono simple dentro, sin detalles extra -->
+                        <!-- Globo + teléfono centrado, outline fino -->
                         <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <!-- globo tipo WhatsApp -->
                             <path d="M5 19.2 4 22l3-1a8 8 0 1 0-2-1.8Z"/>
-                            <!-- teléfono simplificado dentro -->
-                            <path d="M10 8.5c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.3.2.2.6.9.6 1.1 0 .3-.1.5-.3.8-.2.3-.4.6-.5.7-.1.1-.2.3-.1.5.2.4.9 1.2 1.9 1.7.3.1.5.1.7-.1.2-.2.6-.7.7-.9.1-.2.3-.3.5-.2.3.1 1 .5 1.1.6.1.1.2.1.2.2.1.2-.1.8-.4 1.2-.3.4-.9.7-1.2.8-.3.1-.7.1-1.2 0-.5-.1-1.3-.4-2.1-.9-1.2-.7-2.1-1.8-2.4-2.2-.3-.4-.7-1.2-.8-1.6-.1-.4 0-.7.1-.9.2-.3.4-.5.5-.7Z"/>
+                            <!-- teléfono simplificado y centrado -->
+                            <path d="M9.8 9.2c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.3.2.2.5.8.5 1.1 0 .3-.1.5-.3.8l-.4.6c-.1.2-.1.4 0 .6.6 1 1.4 1.7 2.4 2.1.2.1.4.1.6 0l.7-.4c.2-.1.4-.1.6 0 .2.1.8.4 1.1.6.2.1.3.2.3.3 0 .2-.1.6-.4 1-.3.4-.8.7-1.2.8-.4.1-.8.1-1.3 0-1-.2-2.3-.8-3.5-1.9-1-0.9-1.7-2-2-2.8-.2-.5-.2-.9-.1-1.2.1-.3.3-.6.4-.8Z"/>
                         </svg>
                     </a>
                 </div>
 
-                <!-- Portfolio → Instagram (versión que te gustó) -->
+                <!-- Portfolio → Instagram (outline fino, versión anterior) -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
