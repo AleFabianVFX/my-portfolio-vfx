@@ -168,7 +168,7 @@
             transition: transform 0.28s ease;
         }
 
-        /* Instagram SVG — igual a tu captura */
+        /* Instagram SVG — versión aprobada */
         .icon-ig {
             width: 60px;
             height: 60px;
@@ -176,18 +176,13 @@
             transition: transform 0.28s ease;
         }
 
-        .icon-ig rect {
+        .icon-ig rect,
+        .icon-ig circle {
             fill: none;
             stroke: var(--ig-color);
-            stroke-width: 1.5;
+            stroke-width: 0.55;
             stroke-linecap: round;
             stroke-linejoin: round;
-        }
-
-        .icon-ig .ig-circle {
-            fill: none;
-            stroke: var(--ig-color);
-            stroke-width: 1.5;
         }
 
         .icon-ig .ig-dot {
@@ -271,7 +266,7 @@
         <section class="contact-section" aria-label="Contacto y portfolio">
             <div class="contact-grid">
 
-                <!-- CONTACTO: WhatsApp desde PNG local -->
+                <!-- CONTACTO: WhatsApp PNG local -->
                 <div class="contact-item">
                     <p class="contact-label">Contacto</p>
                     <a
@@ -289,7 +284,7 @@
                     </a>
                 </div>
 
-                <!-- PORTFOLIO: Instagram SVG igual a tu captura -->
+                <!-- PORTFOLIO: Instagram SVG aprobado -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
@@ -300,9 +295,9 @@
                         aria-label="Instagram de Alejandro Fabian, se abre en una nueva pestaña"
                     >
                         <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <rect x="2" y="2" width="20" height="20" rx="6" ry="6"/>
-                            ircle class="ig-circle" cx="12" cy="12" r="5"/>
-                            ircle class="ig-dot" cx="17.5" cy="6.5" r="1.2"/>
+                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
+                            ircle cx="12" cy="12" r="4.5"/>
+                            ircle class="ig-dot" cx="17" cy="7" r="0.9"/>
                         </svg>
                     </a>
                 </div>
