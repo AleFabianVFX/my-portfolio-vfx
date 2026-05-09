@@ -14,6 +14,7 @@
             --text-muted: #7a7a7a;
             --text-soft: #a8a8a8;
             --accent: #ffb300;
+            --wa-color: #32d74b;
             --ig-color: #FCAF45;
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
@@ -164,16 +165,20 @@
         .icon {
             width: 60px;
             height: 60px;
-            transition: transform 0.28s ease;
             display: block;
+            transition: transform 0.28s ease;
         }
 
-        .icon-wa-img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            display: block;
-            filter: none;
+        .icon-wa .wa-ring {
+            fill: none;
+            stroke: var(--wa-color);
+            stroke-width: 1.35;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-wa .wa-phone {
+            fill: var(--wa-color);
         }
 
         .icon-ig rect,
@@ -191,9 +196,7 @@
         }
 
         .link:hover .icon,
-        .link:focus-visible .icon,
-        .link:hover .icon-wa-img,
-        .link:focus-visible .icon-wa-img {
+        .link:focus-visible .icon {
             transform: translateY(-4px);
         }
 
@@ -288,13 +291,10 @@
                         class="link"
                         aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <img
-                            class="icon-wa-img"
-                            src="vecteezy_whatsapp-logo-png-whatsapp-logo-transparent-png-whatsapp_23986557.jpg"
-                            alt="WhatsApp"
-                            width="60"
-                            height="60"
-                        >
+                        <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path class="wa-ring" d="M12 3.2a8.7 8.7 0 0 0-7.46 13.18L3.7 20.7l4.24-1.11A8.76 8.76 0 1 0 12 3.2Z"/>
+                            <path class="wa-phone" d="M9.25 8.35c-.42.04-.73.3-.9.66-.5 1.03-.42 2.2.15 3.32.6 1.18 1.58 2.28 2.8 3.16 1.2.87 2.5 1.45 3.72 1.62 1.17.16 2.24-.12 3.02-.83.28-.25.4-.64.31-1l-.26-1.03c-.08-.3-.28-.55-.56-.67l-1.23-.53c-.35-.15-.77-.09-1.05.16l-.78.7c-.11.1-.28.14-.43.09-.59-.21-1.35-.63-2.1-1.18-.76-.55-1.37-1.15-1.82-1.73-.09-.12-.1-.29-.02-.42l.55-.88c.2-.31.22-.71.05-1.04l-.62-1.2c-.16-.31-.49-.52-.84-.51h-.79Z"/>
+                        </svg>
                     </a>
                 </div>
 
