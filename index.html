@@ -14,6 +14,7 @@
             --text-muted: #7a7a7a;
             --text-soft: #a8a8a8;
             --accent: #ffb300;
+            --wa-color: #25D366;
             --ig-color: #FCAF45;
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
@@ -170,16 +171,15 @@
                 fill 0.28s ease;
         }
 
-        /* WhatsApp como imagen PNG */
-        .icon-wa-img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            display: block;
-            transition: transform 0.28s ease;
+        /* outlines muy finos (mitad de espesor anterior) */
+        .icon-wa path {
+            fill: none;
+            stroke: var(--wa-color);
+            stroke-width: 0.55;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        /* Instagram — tu versión correcta */
         .icon-ig rect,
         .icon-ig circle {
             fill: none;
@@ -195,9 +195,7 @@
         }
 
         .link:hover .icon,
-        .link:focus-visible .icon,
-        .link:hover .icon-wa-img,
-        .link:focus-visible .icon-wa-img {
+        .link:focus-visible .icon {
             transform: translateY(-4px);
         }
 
@@ -219,18 +217,24 @@
                 letter-spacing: 0.42em;
                 text-indent: 0.42em;
             }
+
             .profesion {
                 font-size: 0.95rem;
                 letter-spacing: 0.24em;
                 padding-inline: 18px;
             }
+
             .proximamente {
                 font-size: 1.06rem;
                 letter-spacing: 0.38em;
                 text-indent: 0.38em;
                 margin: 44px 0 44px;
             }
-            .contact-grid { gap: 30px; }
+
+            .contact-grid {
+                gap: 30px;
+            }
+
             .contact-label {
                 font-size: 0.76rem;
                 letter-spacing: 0.22em;
@@ -238,9 +242,17 @@
         }
 
         @media (min-width: 768px) {
-            body { padding-top: 48px; }
-            main { gap: 40px; }
-            header { gap: 16px; }
+            body {
+                padding-top: 48px;
+            }
+
+            main {
+                gap: 40px;
+            }
+
+            header {
+                gap: 16px;
+            }
         }
     </style>
 </head>
@@ -269,8 +281,7 @@
 
         <section class="contact-section" aria-label="Contacto y portfolio">
             <div class="contact-grid">
-
-                <!-- Contacto → WhatsApp PNG -->
+                <!-- Contacto → WhatsApp -->
                 <div class="contact-item">
                     <p class="contact-label">Contacto</p>
                     <a
@@ -280,15 +291,17 @@
                         class="link"
                         aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <img
-                            class="icon-wa-img"
-                            src="wa-logo.png"
-                            alt="WhatsApp"
-                        >
+                        <!-- Globo + teléfono centrado, outline fino -->
+                        <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <!-- globo -->
+                            <path d="M5.2 19.1 4 22l3-1A8 8 0 1 0 5.2 19.1Z"/>
+                            <!-- teléfono, más corto y centrado verticalmente -->
+                            <path d="M9.6 10c.2-.3.3-.4.6-.4h.4c.2 0 .4.1.5.3.2.2.5.8.5 1.1 0 .2-.1.4-.3.7l-.3.5c-.1.2-.1.3 0 .5.5.8 1.2 1.4 2 1.8.2.1.3.1.5 0l.6-.3c.2-.1.4-.1.5 0 .2.1.7.4.9.5.2.1.3.2.3.3 0 .2-.1.5-.3.8-.2.3-.7.6-1 .7-.4.1-.8.1-1.2 0-.8-.2-2-.7-3-1.6-.9-.8-1.5-1.7-1.8-2.3-.2-.4-.2-.8-.1-1.1.1-.3.3-.5.4-.7Z"/>
+                        </svg>
                     </a>
                 </div>
 
-                <!-- Portfolio → Instagram SVG exacto tuyo -->
+                <!-- Portfolio → Instagram -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
@@ -300,12 +313,11 @@
                     >
                         <svg class="icon icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
-                            ircle cx="12" cy="12" r="4.5"/>
-                            ircle class="ig-dot" cx="17" cy="7" r="0.9"/>
+                            <circle cx="12" cy="12" r="4.5"/>
+                            <circle class="ig-dot" cx="17" cy="7" r="0.9"/>
                         </svg>
                     </a>
                 </div>
-
             </div>
         </section>
 
