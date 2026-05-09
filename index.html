@@ -14,15 +14,12 @@
             --text-muted: #7a7a7a;
             --text-soft: #a8a8a8;
             --accent: #ffb300;
-            --wa-color: #32d74b;
             --ig-color: #FCAF45;
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -162,32 +159,35 @@
             border-radius: 999px;
         }
 
-        .icon {
+        /* WhatsApp PNG */
+        .icon-wa-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.28s ease;
+        }
+
+        /* Instagram SVG — igual a tu captura */
+        .icon-ig {
             width: 60px;
             height: 60px;
             display: block;
             transition: transform 0.28s ease;
         }
 
-        .icon-wa .wa-ring {
-            fill: none;
-            stroke: var(--wa-color);
-            stroke-width: 1.35;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .icon-wa .wa-phone {
-            fill: var(--wa-color);
-        }
-
-        .icon-ig rect,
-        .icon-ig circle {
+        .icon-ig rect {
             fill: none;
             stroke: var(--ig-color);
-            stroke-width: 0.55;
+            stroke-width: 1.5;
             stroke-linecap: round;
             stroke-linejoin: round;
+        }
+
+        .icon-ig .ig-circle {
+            fill: none;
+            stroke: var(--ig-color);
+            stroke-width: 1.5;
         }
 
         .icon-ig .ig-dot {
@@ -195,8 +195,10 @@
             stroke: none;
         }
 
-        .link:hover .icon,
-        .link:focus-visible .icon {
+        .link:hover .icon-wa-img,
+        .link:focus-visible .icon-wa-img,
+        .link:hover .icon-ig,
+        .link:focus-visible .icon-ig {
             transform: translateY(-4px);
         }
 
@@ -218,24 +220,18 @@
                 letter-spacing: 0.42em;
                 text-indent: 0.42em;
             }
-
             .profesion {
                 font-size: 0.95rem;
                 letter-spacing: 0.24em;
                 padding-inline: 18px;
             }
-
             .proximamente {
                 font-size: 1.06rem;
                 letter-spacing: 0.38em;
                 text-indent: 0.38em;
                 margin: 44px 0 44px;
             }
-
-            .contact-grid {
-                gap: 30px;
-            }
-
+            .contact-grid { gap: 30px; }
             .contact-label {
                 font-size: 0.76rem;
                 letter-spacing: 0.22em;
@@ -243,17 +239,9 @@
         }
 
         @media (min-width: 768px) {
-            body {
-                padding-top: 48px;
-            }
-
-            main {
-                gap: 40px;
-            }
-
-            header {
-                gap: 16px;
-            }
+            body { padding-top: 48px; }
+            main { gap: 40px; }
+            header { gap: 16px; }
         }
     </style>
 </head>
@@ -282,6 +270,8 @@
 
         <section class="contact-section" aria-label="Contacto y portfolio">
             <div class="contact-grid">
+
+                <!-- CONTACTO: WhatsApp desde PNG local -->
                 <div class="contact-item">
                     <p class="contact-label">Contacto</p>
                     <a
@@ -291,13 +281,15 @@
                         class="link"
                         aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path class="wa-ring" d="M12 3.2a8.7 8.7 0 0 0-7.46 13.18L3.7 20.7l4.24-1.11A8.76 8.76 0 1 0 12 3.2Z"/>
-                            <path class="wa-phone" d="M9.25 8.35c-.42.04-.73.3-.9.66-.5 1.03-.42 2.2.15 3.32.6 1.18 1.58 2.28 2.8 3.16 1.2.87 2.5 1.45 3.72 1.62 1.17.16 2.24-.12 3.02-.83.28-.25.4-.64.31-1l-.26-1.03c-.08-.3-.28-.55-.56-.67l-1.23-.53c-.35-.15-.77-.09-1.05.16l-.78.7c-.11.1-.28.14-.43.09-.59-.21-1.35-.63-2.1-1.18-.76-.55-1.37-1.15-1.82-1.73-.09-.12-.1-.29-.02-.42l.55-.88c.2-.31.22-.71.05-1.04l-.62-1.2c-.16-.31-.49-.52-.84-.51h-.79Z"/>
-                        </svg>
+                        <img
+                            class="icon-wa-img"
+                            src="wa-logo.png"
+                            alt="WhatsApp"
+                        >
                     </a>
                 </div>
 
+                <!-- PORTFOLIO: Instagram SVG igual a tu captura -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
@@ -307,13 +299,14 @@
                         class="link"
                         aria-label="Instagram de Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <svg class="icon icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
-                            <circle cx="12" cy="12" r="4.5"/>
-                            <circle class="ig-dot" cx="17" cy="7" r="0.9"/>
+                        <svg class="icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="2" y="2" width="20" height="20" rx="6" ry="6"/>
+                            ircle class="ig-circle" cx="12" cy="12" r="5"/>
+                            ircle class="ig-dot" cx="17.5" cy="6.5" r="1.2"/>
                         </svg>
                     </a>
                 </div>
+
             </div>
         </section>
 
