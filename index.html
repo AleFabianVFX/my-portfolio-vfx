@@ -9,13 +9,15 @@
         :root {
             --bg: #050505;
             --surface: #101010;
-            --border: #262626;
+            --border: #2b2b2b;
             --text: #ffffff;
-            --text-muted: #777777;
+            --text-muted: #7a7a7a;
+            --text-soft: #a8a8a8;
             --accent: #ffb300;
+            --ig: #4A4A4A;
+            --wa: #6b6b6b;
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
-            --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
         }
 
         * {
@@ -58,7 +60,7 @@
             margin: 0;
             font-weight: 300;
             text-transform: uppercase;
-            text-indent: 0.6em; /* compensa el primer espacio */
+            text-indent: 0.6em;
         }
 
         .tagline {
@@ -86,59 +88,66 @@
 
         .profesion {
             color: var(--accent);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.4em;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.28em;
             margin: 4px 0 0;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 8px 18px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 179, 0, 0.25);
+            gap: 12px;
+            padding: 0;
+            border: 0;
         }
 
         .separator {
             display: inline-flex;
             align-items: center;
             line-height: 1;
-            transform: translateY(-1px); /* alineación óptica */
+            transform: translateY(-1px);
+            font-weight: 300;
+            opacity: 0.8;
         }
 
         .proximamente {
-            font-size: 1.1rem;              /* más grande */
-            color: #aaaaaa;
-            letter-spacing: 0.6em;
+            font-size: 1.22rem;
+            color: var(--text-soft);
+            letter-spacing: 0.5em;
             text-transform: uppercase;
-            margin: 44px 0 44px;            /* centrado entre FX/VFX y la línea */
+            margin: 52px 0 52px;
             font-weight: 300;
+            text-indent: 0.5em;
         }
 
         .contact-section {
-            border-top: 1px solid rgba(255, 255, 255, 0.18); /* línea fina pero visible */
-            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
+            padding-top: 30px;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+            gap: 40px;
+            align-items: start;
+            justify-items: center;
+        }
+
+        .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 18px;
-            width: 100%;
-            max-width: 420px;
+            gap: 16px;
         }
 
-        .contact-section p {
-            font-size: 0.85rem;
+        .contact-label {
+            font-size: 0.82rem;
             color: var(--text-muted);
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
-        }
-
-        .icons-container {
-            display: flex;
-            gap: 40px;                /* más separación entre íconos */
-            justify-content: center;
+            letter-spacing: 0.28em;
         }
 
         .link {
@@ -146,29 +155,48 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
         }
 
         .icon {
-            width: 40px;              /* un poco más finos y equilibrados */
-            height: 40px;
+            width: 30px;
+            height: 30px;
             transition:
-                transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                filter 0.3s ease;
+                transform 0.28s ease,
+                opacity 0.28s ease,
+                color 0.28s ease;
+            stroke-width: 1.5;
         }
 
-        .icon-ig { fill: #C13584; }   /* color solicitado para Instagram */
-        .icon-wa { fill: #25D366; }   /* verde oficial WhatsApp */
+        .icon-wa {
+            color: var(--wa);
+        }
+
+        .icon-ig {
+            color: var(--ig);
+        }
 
         .link:hover .icon,
         .link:focus-visible .icon {
-            transform: translateY(-6px);
-            filter: brightness(1.2);
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+
+        .link:hover .icon-wa,
+        .link:focus-visible .icon-wa {
+            color: #8a8a8a;
+        }
+
+        .link:hover .icon-ig,
+        .link:focus-visible .icon-ig {
+            color: #7a7a7a;
         }
 
         .link:focus-visible {
-            outline: 2px solid var(--accent);
+            outline: 1px solid rgba(255, 179, 0, 0.65);
             outline-offset: 4px;
-            border-radius: 999px;
         }
 
         footer {
@@ -177,6 +205,35 @@
             color: #555555;
             letter-spacing: 0.15em;
             text-transform: uppercase;
+        }
+
+        @media (max-width: 520px) {
+            h1 {
+                letter-spacing: 0.42em;
+                text-indent: 0.42em;
+            }
+
+            .profesion {
+                font-size: 0.95rem;
+                letter-spacing: 0.22em;
+                gap: 10px;
+            }
+
+            .proximamente {
+                font-size: 1.05rem;
+                letter-spacing: 0.38em;
+                text-indent: 0.38em;
+                margin: 44px 0 44px;
+            }
+
+            .contact-grid {
+                gap: 28px;
+            }
+
+            .contact-label {
+                font-size: 0.76rem;
+                letter-spacing: 0.22em;
+            }
         }
 
         @media (min-width: 768px) {
@@ -190,11 +247,6 @@
 
             header {
                 gap: 16px;
-            }
-
-            .proximamente {
-                margin-top: 48px;
-                margin-bottom: 48px;
             }
         }
     </style>
@@ -219,48 +271,4 @@
         </section>
 
         <section aria-label="Próximamente portfolio completo">
-            <p class="proximamente">Próximamente</p>
-        </section>
-
-        <section class="contact-section" aria-label="Contacto y redes">
-            <p>Contacto y portfolio</p>
-            <div class="icons-container">
-                <!-- WhatsApp (primero, icono oficial redondo) -->
-                <a
-                    href="https://wa.me/54911XXXXXXXX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link"
-                    aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
-                >
-                    <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M12 0C5.373 0 0 5.372 0 12c0 2.115.586 4.084 1.607 5.768L0 24l6.42-1.58A11.936 11.936 0 0 0 12 24c6.627 0 12-5.372 12-12S18.627 0 12 0zm0 22a9.93 9.93 0 0 1-5.063-1.414l-.362-.214-3.718.915.994-3.59-.235-.37A9.006 9.006 0 0 1 3 12c0-4.963 4.037-9 9-9s9 4.037 9 9-4.037 9-9 9zm5.013-6.798c-.274-.137-1.621-.8-1.872-.89-.25-.093-.432-.137-.615.137-.18.274-.706.89-.865 1.074-.159.18-.318.205-.592.068-.274-.137-1.156-.426-2.2-1.356-.813-.725-1.36-1.62-1.519-1.894-.159-.274-.017-.422.12-.559.122-.122.274-.317.411-.476.137-.159.182-.274.274-.457.093-.183.046-.343-.023-.48-.068-.137-.615-1.484-.843-2.034-.22-.53-.445-.457-.615-.465l-.524-.009c-.182 0-.48.068-.731.343-.25.274-.962.939-.962 2.29 0 1.351.985 2.657 1.122 2.84.137.183 1.94 2.963 4.7 4.052.657.283 1.169.452 1.567.579.658.21 1.257.18 1.73.109.528-.079 1.621-.663 1.852-1.304.228-.64.228-1.189.159-1.304-.068-.114-.25-.183-.524-.32z"/>
-                    </svg>
-                </a>
-
-                <!-- Instagram (a la derecha, color #C13584) -->
-                <a
-                    href="https://www.instagram.com/alefabianvfx?igsh=YWkyZmtwaW8zdjVy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link"
-                    aria-label="Instagram de Alejandro Fabian, se abre en una nueva pestaña"
-                >
-                    <svg class="icon icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-            </div>
-        </section>
-
-        <footer>
-            © <span id="year"></span> Alejandro Fabian
-        </footer>
-    </main>
-
-    <script>
-        // Año dinámico
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html>
+            
