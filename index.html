@@ -71,6 +71,7 @@
             margin: 0;
         }
 
+        /* Contenedor del video */
         .media-container {
             width: 100%;
             max-width: 900px;
@@ -79,11 +80,79 @@
             overflow: hidden;
             box-shadow: var(--shadow-strong);
             background: var(--surface);
+            position: relative;
         }
 
-        .media-container img {
+        /* Ratio 16:9 */
+        .video-wrapper {
+            position: relative;
             width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+
+        /* Thumbnail de portada antes de dar play */
+        .video-thumb {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Overlay oscuro sobre la thumbnail */
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .video-overlay:hover {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Botón play minimalista */
+        .play-btn {
+            width: 64px;
+            height: 64px;
+            border: 1.5px solid rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-overlay:hover .play-btn {
+            transform: scale(1.1);
+            border-color: #ffffff;
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 20px;
+            border-color: transparent transparent transparent rgba(255,255,255,0.9);
+            margin-left: 4px; /* centrado óptico */
+        }
+
+        /* iframe YouTube, oculto hasta dar play */
+        .video-iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
         }
 
         .profesion {
@@ -171,7 +240,6 @@
                 fill 0.28s ease;
         }
 
-        /* outlines muy finos (mitad de espesor anterior) */
         .icon-wa path {
             fill: none;
             stroke: var(--wa-color);
@@ -213,46 +281,18 @@
         }
 
         @media (max-width: 520px) {
-            h1 {
-                letter-spacing: 0.42em;
-                text-indent: 0.42em;
-            }
-
-            .profesion {
-                font-size: 0.95rem;
-                letter-spacing: 0.24em;
-                padding-inline: 18px;
-            }
-
-            .proximamente {
-                font-size: 1.06rem;
-                letter-spacing: 0.38em;
-                text-indent: 0.38em;
-                margin: 44px 0 44px;
-            }
-
-            .contact-grid {
-                gap: 30px;
-            }
-
-            .contact-label {
-                font-size: 0.76rem;
-                letter-spacing: 0.22em;
-            }
+            h1 { letter-spacing: 0.42em; text-indent: 0.42em; }
+            .profesion { font-size: 0.95rem; letter-spacing: 0.24em; padding-inline: 18px; }
+            .proximamente { font-size: 1.06rem; letter-spacing: 0.38em; text-indent: 0.38em; margin: 44px 0 44px; }
+            .contact-grid { gap: 30px; }
+            .contact-label { font-size: 0.76rem; letter-spacing: 0.22em; }
+            .play-btn { width: 52px; height: 52px; }
         }
 
         @media (min-width: 768px) {
-            body {
-                padding-top: 48px;
-            }
-
-            main {
-                gap: 40px;
-            }
-
-            header {
-                gap: 16px;
-            }
+            body { padding-top: 48px; }
+            main { gap: 40px; }
+            header { gap: 16px; }
         }
     </style>
 </head>
@@ -263,8 +303,27 @@
             <p class="tagline">FX &amp; VFX artist</p>
         </header>
 
-        <section aria-label="Portada principal" class="media-container">
-            <img src="portada.jpg" alt="Portada cinematográfica del portfolio de FX y VFX de Alejandro Fabian">
+        <!-- VIDEO: reemplaza portada.jpg -->
+        <section aria-label="Reel principal" class="media-container">
+            <div class="video-wrapper">
+                <!-- Thumbnail: usá tu portada.jpg hasta tener el video listo -->
+                <img class="video-thumb" src="portada.jpg" alt="Ver reel de FX y VFX de Alejandro Fabian">
+                <!-- Overlay con botón play minimalista -->
+                <div class="video-overlay" id="playOverlay">
+                    <div class="play-btn">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <!-- iframe YouTube: reemplazá TU_VIDEO_ID con el ID real -->
+                <iframe
+                    class="video-iframe"
+                    id="ytVideo"
+                    src=""
+                    data-src="https://www.youtube.com/embed/qUVEHgIJQJg?autoplay=1&rel=0&modestbranding=1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
         </section>
 
         <section aria-label="Especialidades">
@@ -281,25 +340,23 @@
 
         <section class="contact-section" aria-label="Contacto y portfolio">
             <div class="contact-grid">
-                <!-- Contacto → WhatsApp -->
-<div class="contact-item">
-    <p class="contact-label">Contacto</p>
-    <a
-        href="https://wa.me/5491165044902"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="link"
-        aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
-    >
-        <img
-            style="width:60px;height:60px;object-fit:contain;display:block;transition:transform 0.28s ease;"
-            src="wa-logo.png"
-            alt="WhatsApp"
-        >
-    </a>
-</div>
+                <div class="contact-item">
+                    <p class="contact-label">Contacto</p>
+                    <a
+                        href="https://wa.me/5491165044902"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="link"
+                        aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
+                    >
+                        <img
+                            style="width:60px;height:60px;object-fit:contain;display:block;transition:transform 0.28s ease;"
+                            src="wa-logo.png"
+                            alt="WhatsApp"
+                        >
+                    </a>
+                </div>
 
-                <!-- Portfolio → Instagram -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
@@ -311,8 +368,8 @@
                     >
                         <svg class="icon icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
-                            <circle cx="12" cy="12" r="4.5"/>
-                            <circle class="ig-dot" cx="17" cy="7" r="0.9"/>
+                            ircle cx="12" cy="12" r="4.5"/>
+                            ircle class="ig-dot" cx="17" cy="7" r="0.9"/>
                         </svg>
                     </a>
                 </div>
@@ -325,7 +382,20 @@
     </main>
 
     <script>
+        // Año dinámico
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Play button
+        const overlay = document.getElementById('playOverlay');
+        const iframe = document.getElementById('ytVideo');
+        const thumb = document.querySelector('.video-thumb');
+
+        overlay.addEventListener('click', function () {
+            iframe.src = iframe.dataset.src;
+            iframe.style.display = 'block';
+            overlay.style.display = 'none';
+            thumb.style.display = 'none';
+        });
     </script>
 </body>
 </html>
