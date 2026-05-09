@@ -14,8 +14,8 @@
             --text-muted: #7a7a7a;
             --text-soft: #a8a8a8;
             --accent: #ffb300;
-            --wa-color: #25D366;  /* verde WhatsApp */
-            --ig-color: #FCAF45;  /* naranja Instagram */
+            --wa-color: #25D366;
+            --ig-color: #FCAF45;
             --radius: 12px;
             --shadow-strong: 0 22px 70px rgba(0, 0, 0, 0.9);
         }
@@ -163,14 +163,14 @@
         }
 
         .icon {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             transition:
                 transform 0.28s ease,
-                stroke 0.28s ease;
+                stroke 0.28s ease,
+                fill 0.28s ease;
         }
 
-        /* WhatsApp: solo el teléfono típico en outline verde */
         .icon-wa path {
             fill: none;
             stroke: var(--wa-color);
@@ -179,7 +179,6 @@
             stroke-linejoin: round;
         }
 
-        /* Instagram: recuadro redondeado + círculo + punto, outline naranja */
         .icon-ig rect,
         .icon-ig circle {
             fill: none;
@@ -281,7 +280,6 @@
 
         <section class="contact-section" aria-label="Contacto y portfolio">
             <div class="contact-grid">
-                <!-- Contacto → WhatsApp -->
                 <div class="contact-item">
                     <p class="contact-label">Contacto</p>
                     <a
@@ -291,17 +289,14 @@
                         class="link"
                         aria-label="Contactar por WhatsApp a Alejandro Fabian, se abre en una nueva pestaña"
                     >
-                        <!-- Solo el teléfono en outline verde, sin círculo/burbuja -->
+                        <!-- WhatsApp: globo con flecha + teléfono inside -->
                         <svg class="icon icon-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M7 4c.5-1 1.3-1 1.8-1l1.4.2c.5.1 1 .4 1.2.9l.6 1.3c.3.6.2 1.2-.1 1.7l-.6 1
-                                     c-.3.5-.3 1.1 0 1.6l.9 1.3c.3.4.8.7 1.3.7l1.2-.1c.6-.1 1.1.1 1.6.5l1.1.9c.5.4.7 1 .6 1.6l-.2 1.3
-                                     c-.1.7-.5 1.2-1.2 1.4l-1.5.4c-1.3.3-2.6.1-3.7-.5-2.1-1.1-4-3-5.2-5.2-.6-1.1-.8-2.4-.5-3.7l.4-1.5
-                                     C6.3 5 6.6 4.4 7 4Z" />
+                            <path d="M12 3.2a8.3 8.3 0 0 0-7 12.8L4 20l4-1a8.3 8.3 0 1 0 4-15.8Z"/>
+                            <path d="M10.1 8.7c.15-.35.35-.4.58-.4h.5c.16 0 .36.06.52.26.16.2.64.86.64 1.48s-.33.97-.47 1.13c-.14.17-.3.36-.1.7.2.34.9 1.43 1.93 1.94.33.17.52.13.7-.05.18-.19.78-.91 1-.99.22-.08.37-.06.52.03.15.1.94.44 1.1.52.16.08.27.12.31.2.04.08.04.46-.15.9-.2.44-1.14.87-1.57.94-.4.06-.9.09-1.47-.1-.35-.12-.8-.27-1.38-.52-2.43-1.06-4.01-3.53-4.13-3.7-.12-.17-.98-1.3-.98-2.48 0-1.18.62-1.75.84-2Z"/>
                         </svg>
                     </a>
                 </div>
 
-                <!-- Portfolio → Instagram -->
                 <div class="contact-item">
                     <p class="contact-label">Portfolio</p>
                     <a
@@ -313,8 +308,8 @@
                     >
                         <svg class="icon icon-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
-                            <circle cx="12" cy="12" r="4.5"/>
-                            <circle class="ig-dot" cx="17" cy="7" r="0.9"/>
+                            ircle cx="12" cy="12" r="4.5"/>
+                            ircle class="ig-dot" cx="17" cy="7" r="0.9"/>
                         </svg>
                     </a>
                 </div>
