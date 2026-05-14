@@ -93,53 +93,6 @@
             background: #000;
         }
 
-        .video-play {
-            position: absolute;
-            right: 18px;
-            bottom: 18px;
-            width: 44px;
-            height: 44px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.82);
-            background: rgba(0,0,0,0.14);
-            color: #fff;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            transition:
-                transform 0.28s ease,
-                border-color 0.28s ease,
-                background 0.28s ease,
-                opacity 0.28s ease;
-        }
-
-        .video-play svg {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 1.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            margin-left: 1px;
-        }
-
-        .video-wrap:hover .video-play,
-        .video-play:hover,
-        .video-play:focus-visible {
-            transform: translateY(-2px);
-            background: rgba(0,0,0,0.28);
-            border-color: rgba(255,255,255,0.96);
-        }
-
-        .video-wrap.is-playing .video-play {
-            opacity: 0;
-            pointer-events: none;
-        }
-
         .profesion {
             color: var(--accent);
             font-size: 1rem;
@@ -154,7 +107,7 @@
             padding: 6px 22px;
             border-radius: 999px;
             border: 1px solid rgba(255, 179, 0, 0.35);
-            background: radial-gradient(circle at 0% 0%, rgba(255,179,0,0.12), transparent 60%);
+            background: transparent;
         }
 
         .separator {
@@ -257,8 +210,7 @@
             transform: translateY(-4px);
         }
 
-        .link:focus-visible,
-        .video-play:focus-visible {
+        .link:focus-visible {
             outline: 1px solid rgba(255, 179, 0, 0.7);
             outline-offset: 4px;
         }
@@ -298,13 +250,6 @@
                 font-size: 0.76rem;
                 letter-spacing: 0.22em;
             }
-
-            .video-play {
-                width: 40px;
-                height: 40px;
-                right: 14px;
-                bottom: 14px;
-            }
         }
 
         @media (min-width: 768px) {
@@ -341,12 +286,6 @@
                     <source src="reel.mp4" type="video/mp4">
                     Tu navegador no soporta video HTML5.
                 </video>
-
-                <button class="video-play" type="button" aria-label="Reproducir video">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M8 6.5v11l9-5.5-9-5.5Z"></path>
-                    </svg>
-                </button>
             </div>
         </section>
 
@@ -409,28 +348,6 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        const videoWrap = document.querySelector('.video-wrap');
-        const video = document.querySelector('.hero-video');
-        const playBtn = document.querySelector('.video-play');
-
-        if (videoWrap && video && playBtn) {
-            playBtn.addEventListener('click', () => {
-                video.play();
-            });
-
-            video.addEventListener('play', () => {
-                videoWrap.classList.add('is-playing');
-            });
-
-            video.addEventListener('pause', () => {
-                videoWrap.classList.remove('is-playing');
-            });
-
-            video.addEventListener('ended', () => {
-                videoWrap.classList.remove('is-playing');
-            });
-        }
     </script>
 </body>
 </html>
