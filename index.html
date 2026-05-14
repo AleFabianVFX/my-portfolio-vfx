@@ -347,7 +347,12 @@
     </main>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const video = document.querySelector('.hero-video');
+    video.addEventListener('ended', function () {
+        video.load(); // vuelve al poster al terminar
+    });
+</script>
 </body>
 </html>
